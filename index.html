@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finders. Lost & Found</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode"> 
+    
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">🌙</button>
+
+    <header class="app-header">
+        <div class="logo">Finders.</div>
+        <nav class="desktop-nav">
+            <button class="nav-link active" data-page="home">Home</button>
+            <button class="nav-link" data-page="browse">Browse</button>
+            <button class="nav-link" data-page="myreports">My Reports</button>
+            <button class="primary-btn report-trigger">Report Item</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="home-page" class="app-page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Pick up what <span class="accent-text">matters.</span></h1>
+                    <p>Report lost or found items quickly and find your matches on campus.</p>
+                    <div class="cta-group">
+                        <button class="primary-btn report-trigger">Report Item</button>
+                        <button class="secondary-btn nav-link" data-page="browse">Browse Gallery</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="item-gallery mt-50">
+                <h2>Recently Posted Items</h2>
+                <div class="item-grid" id="home-item-grid">
+                    </div>
+            </section>
+        </section>
+
+        <section id="browse-page" class="app-page hidden">
+            <h2 class="page-title">Browse All Items</h2>
+            <div class="filter-bar">
+                <div class="filter-row">
+                    <input type="text" placeholder="Search items, locations..." class="search-bar">
+                    <select class="sort-select" aria-label="Sort items">
+                        <option value="recent">Most Recent</option>
+                        <option value="az">Title A–Z</option>
+                        <option value="type">Type (Lost first)</option>
+                    </select>
+                </div>
+                <div class="chip-container">
+                    <span class="filter-chip active">All</span>
+                    <span class="filter-chip">Phone</span>
+                    <span class="filter-chip">Keys</span>
+                    <span class="filter-chip">Wallet/ID</span>
+                </div>
+            </div>
+            <div class="item-grid" id="browse-item-grid">
+                 </div>
+        </section>
+
+        <section id="myreports-page" class="app-page hidden">
+            <h2 class="page-title">My Submitted Reports</h2>
+            <div class="empty-state">
+                <p>You haven't reported any items yet.</p>
+                <button class="primary-btn report-trigger">Report Your First Item</button>
+            </div>
+        </section>
+        
+        <div id="detail-overlay" class="detail-overlay hidden">
+            <div class="glass-panel">
+                <button class="close-detail-btn">&times;</button>
+                <h3>Black Redmi Phone</h3>
+                <p class="detail-meta">Lost at Library - 2 days ago</p>
+                <img src="https://via.placeholder.com/400x300/2B2E33/FFFFFF?text=Phone+Detail" alt="Item Image" class="detail-image">
+                <p class="detail-desc">Black Redmi phone with cracked bottom-right corner. Has blue sticker.</p>
+                <div class="match-score">Match Score: 78% (See matches below)</div>
+                <button class="primary-btn full-width mt-20">I own this (Claim)</button>
+            </div>
+        </div>
+
+    </main>
+    
+    <div id="report-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Report an Item</h2>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="stepper">
+                <div class="step active" data-step="1">
+                    <h3>Step 1: Photo First</h3>
+                    <div class="upload-zone">
+                        Drag & Drop or <button class="secondary-btn">Use Camera</button>
+                    </div>
+                    <div class="live-preview-card">
+                        </div>
+                    <button class="primary-btn next-step-btn" data-next="2">Next: Category</button>
+                </div>
+                </div>
+        </div>
+    </div>
+
+
+    <nav class="mobile-nav">
+        <button class="nav-link mobile-nav-item active" data-page="home">
+            <svg class="icon"><use xlink:href="#home"/></svg>Home
+        </button>
+        <button class="mobile-report-cta report-trigger">
+            <svg class="icon"><use xlink:href="#plus"/></svg>
+        </button>
+        <button class="nav-link mobile-nav-item" data-page="browse">
+            <svg class="icon"><use xlink:href="#compass"/></svg>Browse
+        </button>
+    </nav>
+    
+    <svg style="display: none;">
+        <symbol id="home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></symbol>
+        <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></symbol>
+        <symbol id="plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></symbol>
+        <symbol id="map-pin" viewBox="0 0 24 24"><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0"></path><path d="M12 21.5s-7-7-7-10c0-4 3.5-7 7-7s7 3 7 7c0 3-7 10-7 10z"></path></symbol>
+    </svg>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
